@@ -16,34 +16,39 @@ if (burger && mobileMenu) {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
     const targetId = this.getAttribute("href");
-    if (targetId.length > 1) {
+    if (targetId && targetId.length > 1) {
       e.preventDefault();
-      document.querySelector(targetId).scrollIntoView({ behavior: "smooth" });
+      const el = document.querySelector(targetId);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
     }
   });
 });
 
-// Cards abrindo formulário com tipo selecionado
+// Cards -> preencher tipo do recebível e descer para o formulário
 document.querySelectorAll(".js-open-form").forEach(btn => {
   btn.addEventListener("click", () => {
     const tipo = btn.dataset.type;
     const select = document.getElementById("tipoRecebivel");
-    if (select) {
+    if (select && tipo) {
       select.value = tipo;
     }
-    document.getElementById("formulario").scrollIntoView({ behavior: "smooth" });
+    const formSection = document.getElementById("formulario");
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: "smooth" });
+    }
   });
 });
 
-// FAQ
+// FAQ accordion
 document.querySelectorAll(".rk-faq-item").forEach(item => {
   const btn = item.querySelector(".rk-faq-question");
+  if (!btn) return;
   btn.addEventListener("click", () => {
     item.classList.toggle("open");
   });
 });
 
-// Formulário -> monta texto para WhatsApp
+// Formulário -> gerar link de WhatsApp com os dados
 const form = document.getElementById("leadForm");
 const successMsg = document.getElementById("successMsg");
 const successLink = document.getElementById("successLink");
@@ -53,14 +58,14 @@ if (form) {
     e.preventDefault();
 
     const data = new FormData(form);
-    const empresa = data.get("empresa");
-    const cnpj = data.get("cnpj");
-    const segmento = data.get("segmento");
-    const tipo = data.get("tipo");
-    const valor = data.get("valor");
-    const prazo = data.get("prazo");
-    const responsavel = data.get("responsavel");
-    const contato = data.get("contato");
+    const empresa = data.get("empresa") || "";
+    const cnpj = data.get("cnpj") || "";
+    const segmento = data.get("segmento") || "";
+    const tipo = data.get("tipo") || "";
+    const valor = data.get("valor") || "";
+    const prazo = data.get("prazo") || "";
+    const responsavel = data.get("responsavel") || "";
+    const contato = data.get("contato") || "";
 
     const texto =
       `Olá, sou ${responsavel} da empresa ${empresa} (CNPJ: ${cnpj}).%0A` +
@@ -73,9 +78,11 @@ if (form) {
 
     const waUrl = `https://wa.me/5511941512192?text=${texto}`;
 
-    successMsg.style.display = "block";
-    successLink.style.display = "inline-flex";
-    successLink.href = waUrl;
+    if (successMsg && successLink) {
+      successMsg.style.display = "block";
+      successLink.style.display = "inline-flex";
+      successLink.href = waUrl;
+    }
 
     form.scrollIntoView({ behavior: "smooth", block: "center" });
   });
