@@ -48,42 +48,36 @@ document.querySelectorAll(".rk-faq-item").forEach(item => {
   });
 });
 
-// Formulário -> gerar link de WhatsApp com os dados
+// Formulário -> ir direto para o WhatsApp com os dados
 const form = document.getElementById("leadForm");
-const successMsg = document.getElementById("successMsg");
-const successLink = document.getElementById("successLink");
 
 if (form) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const data = new FormData(form);
-    const empresa = data.get("empresa") || "";
-    const cnpj = data.get("cnpj") || "";
-    const segmento = data.get("segmento") || "";
-    const tipo = data.get("tipo") || "";
-    const valor = data.get("valor") || "";
-    const prazo = data.get("prazo") || "";
-    const responsavel = data.get("responsavel") || "";
-    const contato = data.get("contato") || "";
+    const empresa = (data.get("empresa") || "").trim();
+    const cnpj = (data.get("cnpj") || "").trim();
+    const segmento = (data.get("segmento") || "").trim();
+    const tipo = (data.get("tipo") || "").trim();
+    const valor = (data.get("valor") || "").trim();
+    const prazo = (data.get("prazo") || "").trim();
+    const responsavel = (data.get("responsavel") || "").trim();
+    const contato = (data.get("contato") || "").trim();
 
-    const texto =
-      `Olá, sou ${responsavel} da empresa ${empresa} (CNPJ: ${cnpj}).%0A` +
-      `Segmento: ${segmento}.%0A` +
-      `Tipo de recebível: ${tipo}.%0A` +
-      `Valor aproximado para antecipar: ${valor}.%0A` +
-      `Prazo médio de recebimento: ${prazo}.%0A` +
-      `Contato: ${contato}.%0A` +
+    let texto =
+      `Olá, sou ${responsavel} da empresa ${empresa} (CNPJ: ${cnpj}).\n` +
+      `Segmento: ${segmento}.\n` +
+      `Tipo de recebível: ${tipo}.\n` +
+      `Valor aproximado para antecipar: ${valor}.\n` +
+      `Prazo médio de recebimento: ${prazo}.\n` +
+      `Contato: ${contato}.\n` +
       `Gostaria de solicitar uma análise de antecipação de recebíveis com a RK Factoring.`;
 
-    const waUrl = `https://wa.me/5511941512192?text=${texto}`;
+    texto = encodeURIComponent(texto);
+    const numero = "5511941512192";
+    const waUrl = `https://wa.me/${numero}?text=${texto}`;
 
-    if (successMsg && successLink) {
-      successMsg.style.display = "block";
-      successLink.style.display = "inline-flex";
-      successLink.href = waUrl;
-    }
-
-    form.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.location.href = waUrl;
   });
 }
