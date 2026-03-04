@@ -64,81 +64,95 @@
   </header>
 
   <main id="topo">
-    <!-- HERO -->
-    <section class="rk-section rk-hero">
-      <div class="rk-container rk-hero-grid">
+    <!-- HERO compacto com formulário -->
+    <section class="rk-section rk-hero rk-hero-compact">
+      <div class="rk-container rk-two-cols">
+        <!-- Texto -->
         <div class="rk-hero-left">
           <div class="rk-tag">
             <span class="rk-tag-dot"></span>
             <span>Antecipação de recebíveis para PJ</span>
           </div>
           <h1 class="rk-title-xl">
-            Antecipe boletos e notas fiscais e transforme prazo em caixa imediato
+            Antecipe boletos e notas fiscais e coloque dinheiro no caixa sem burocracia
           </h1>
           <p class="rk-subtitle">
-            RK Factoring antecipa recebíveis (boletos e notas fiscais) para empresas (PJ),
-            com atendimento presencial em São Paulo e digital, análise sob medida
-            e apoio de cobrança quando necessário.
+            RK Factoring antecipa recebíveis para empresas (PJ) com atendimento presencial em
+            São Paulo e digital, análise sob medida e apoio de cobrança quando necessário.
           </p>
 
           <ul class="rk-list-check">
-            <li><span class="icon">✓</span>Mais capital de giro sem travar sua operação.</li>
-            <li><span class="icon">✓</span>Processo simples, direto e com condições sob análise.</li>
-            <li><span class="icon">✓</span>Cobrança e gestão do recebível para reduzir atrasos.</li>
+            <li><span class="icon">✓</span>Mais capital de giro para folha, fornecedores e impostos.</li>
+            <li><span class="icon">✓</span>Condições sob análise, alinhadas ao perfil da sua operação.</li>
+            <li><span class="icon">✓</span>Cobrança como apoio estratégico para reduzir atrasos.</li>
           </ul>
 
           <div class="rk-hero-ctas">
             <a href="#formulario" class="rk-btn rk-btn-primary">
-              Quero antecipar recebíveis
+              Quero antecipar meus recebíveis
               <span class="icon-arrow">→</span>
             </a>
             <a href="https://wa.me/5511941512192" target="_blank"
                class="rk-btn rk-btn-outline">
-              Falar com especialista agora
-            </a>
-            <a href="#atendimento" class="rk-btn rk-btn-ghost">
-              Agendar atendimento presencial
+              Falar com especialista no WhatsApp
             </a>
           </div>
 
           <p class="rk-microcopy">
-            Atendimento presencial e digital • Exclusivo para PJ • Condições sob análise.
+            Exclusivo para PJ • Boletos e notas fiscais • Atendimento presencial e digital.
           </p>
         </div>
 
+        <!-- Formulário rápido -->
         <div class="rk-hero-right">
-          <div class="rk-hero-card">
-            <div class="rk-hero-glow"></div>
-            <p class="rk-hero-label">Simule em poucos passos</p>
-            <h2>Fluxo de caixa previsível para sua empresa</h2>
-            <p class="rk-hero-text">
-              Envie seus boletos ou notas fiscais e receba uma análise sob medida
-              para antecipar o que é seu por direito.
+          <form class="rk-form rk-form-hero" id="leadForm">
+            <h2 class="rk-form-title">Solicite uma análise rápida</h2>
+            <p class="rk-form-subtext">
+              Preencha em menos de 1 minuto para receber uma avaliação sob medida.
             </p>
 
-            <div class="rk-hero-metrics">
-              <div>
-                <span class="rk-metric-main">PJ</span>
-                <span class="rk-metric-label">Atendimento exclusivo</span>
-              </div>
-              <div>
-                <span class="rk-metric-main">São Paulo</span>
-                <span class="rk-metric-label">Rua Ezequiel Freire, 192</span>
-              </div>
-              <div>
-                <span class="rk-metric-main">Boletos &amp; NF</span>
-                <span class="rk-metric-label">Recebíveis que trabalhamos</span>
-              </div>
+            <div class="rk-form-row">
+              <label>Nome da empresa *</label>
+              <input type="text" name="empresa" required>
+            </div>
+            <div class="rk-form-row">
+              <label>CNPJ *</label>
+              <input type="text" name="cnpj" required>
+            </div>
+            <div class="rk-form-row">
+              <label>Tipo de recebível *</label>
+              <select name="tipo" id="tipoRecebivel" required>
+                <option value="">Selecione</option>
+                <option value="Boleto">Boleto</option>
+                <option value="Nota Fiscal">Nota Fiscal</option>
+                <option value="Cobrança">Cobrança / Gestão de recebíveis</option>
+              </select>
+            </div>
+            <div class="rk-form-row">
+              <label>Valor aproximado a antecipar *</label>
+              <input type="text" name="valor" required>
+            </div>
+            <div class="rk-form-row">
+              <label>WhatsApp *</label>
+              <input type="text" name="contato" required>
             </div>
 
-            <a href="#formulario" class="rk-btn rk-btn-primary rk-hero-card-btn">
-              Solicitar análise agora
-            </a>
+            <button type="submit" class="rk-btn rk-btn-primary rk-btn-full">
+              Enviar para análise
+            </button>
 
-            <p class="rk-hero-card-micro">
-              Exclusivo para empresas (PJ). Retorno conforme análise.
+            <p class="rk-microcopy">
+              Você recebe o retorno conforme análise, com orientação do que faz mais sentido
+              para o seu caixa.
             </p>
-          </div>
+
+            <p class="rk-form-success" id="successMsg">
+              Dados preparados! Clique abaixo para concluir o contato via WhatsApp.
+            </p>
+            <a id="successLink" class="rk-btn rk-btn-outline rk-btn-full" target="_blank" style="display:none;">
+              Concluir contato pelo WhatsApp
+            </a>
+          </form>
         </div>
       </div>
     </section>
@@ -254,8 +268,7 @@
               Soluções sob medida para microempreendedores e empresas (PJ)
             </h2>
             <p class="rk-text">
-              Atuação em fomento mercantil, antecipação de recebíveis e apoio de cobrança,
-              com foco em destravar capital de giro.
+              Escolha o tipo de operação que faz mais sentido agora para o seu caixa.
             </p>
           </div>
         </div>
@@ -264,8 +277,7 @@
           <article class="rk-card hover-tilt">
             <h3>Antecipação de boletos</h3>
             <p>
-              Antecipe valores de boletos a receber e ganhe fôlego de caixa
-              para manter a operação rodando.
+              Antecipe boletos a receber e ganhe fôlego de caixa imediato.
             </p>
             <button class="rk-btn rk-btn-primary js-open-form" data-type="Boleto">
               Antecipar boletos
@@ -275,8 +287,7 @@
           <article class="rk-card hover-tilt">
             <h3>Antecipação de nota fiscal</h3>
             <p>
-              Se você emite nota fiscal e vende a prazo, transforme o prazo
-              em oportunidade e planeje seu crescimento.
+              Transforme vendas faturadas em fluxo de caixa previsível.
             </p>
             <button class="rk-btn rk-btn-primary js-open-form" data-type="Nota Fiscal">
               Antecipar notas fiscais
@@ -286,8 +297,7 @@
           <article class="rk-card hover-tilt">
             <h3>Cobrança e gestão de recebíveis</h3>
             <p>
-              Apoio na cobrança e organização do recebível para reduzir estresse,
-              atrasos e ruído com o cliente.
+              Organize sua carteira e reduza atrasos com apoio da RK.
             </p>
             <button class="rk-btn rk-btn-outline js-open-form" data-type="Cobrança">
               Quero apoio na cobrança
@@ -415,13 +425,13 @@
             <span>Clareza gera confiança</span>
           </div>
           <h2 class="rk-title-md">Recebíveis que a RK trabalha</h2>
-          <ul class="rk-list-check">
+          <ul class="rk-list-check rk-list-dark">
             <li><span class="icon">✓</span>Boletos.</li>
             <li><span class="icon">✓</span>Notas fiscais.</li>
           </ul>
 
           <h3 class="rk-subheading">Atendimento</h3>
-          <ul class="rk-list-check">
+          <ul class="rk-list-check rk-list-dark">
             <li><span class="icon">✓</span>Apenas empresas (PJ).</li>
             <li><span class="icon">✓</span>Atendimento presencial em São Paulo e digital.</li>
           </ul>
@@ -452,96 +462,6 @@
              class="rk-btn rk-btn-outline">
             Falar com a RK agora (WhatsApp)
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FORMULÁRIO -->
-    <section class="rk-section rk-dark" id="formulario">
-      <div class="rk-container rk-two-cols">
-        <div>
-          <div class="rk-tag">
-            <span class="rk-tag-dot"></span>
-            <span>Envie seus dados</span>
-          </div>
-          <h2 class="rk-title-md">Solicite sua análise em poucos passos</h2>
-          <p class="rk-text">
-            Seu recebível pode virar caixa e previsibilidade. Envie os dados
-            e receba um retorno conforme análise, com orientação do que faz mais
-            sentido para sua operação.
-          </p>
-          <ul class="rk-list-bullets">
-            <li>Formulário enxuto para agilizar sua solicitação.</li>
-            <li>Campos focados apenas no que é essencial para a análise.</li>
-            <li>Você sabe exatamente o que acontece depois de enviar.</li>
-          </ul>
-        </div>
-
-        <div>
-          <form class="rk-form" id="leadForm">
-            <div class="rk-form-row">
-              <label>Nome da empresa *</label>
-              <input type="text" name="empresa" required>
-            </div>
-
-            <div class="rk-form-row">
-              <label>CNPJ *</label>
-              <input type="text" name="cnpj" required>
-            </div>
-
-            <div class="rk-form-row">
-              <label>Segmento *</label>
-              <input type="text" name="segmento" required>
-            </div>
-
-            <div class="rk-form-row rk-form-grid-2">
-              <div>
-                <label>Tipo de recebível *</label>
-                <select name="tipo" id="tipoRecebivel" required>
-                  <option value="">Selecione</option>
-                  <option value="Boleto">Boleto</option>
-                  <option value="Nota Fiscal">Nota Fiscal</option>
-                  <option value="Cobrança">Cobrança / Gestão de recebíveis</option>
-                </select>
-              </div>
-              <div>
-                <label>Valor aproximado a antecipar *</label>
-                <input type="text" name="valor" required>
-              </div>
-            </div>
-
-            <div class="rk-form-row">
-              <label>Prazo médio de recebimento *</label>
-              <input type="text" name="prazo" required>
-            </div>
-
-            <div class="rk-form-row rk-form-grid-2">
-              <div>
-                <label>Nome do responsável *</label>
-                <input type="text" name="responsavel" required>
-              </div>
-              <div>
-                <label>WhatsApp / E-mail *</label>
-                <input type="text" name="contato" required>
-              </div>
-            </div>
-
-            <button type="submit" class="rk-btn rk-btn-primary rk-btn-full">
-              Enviar para análise
-            </button>
-
-            <p class="rk-microcopy">
-              Após o envio, a RK entra em contato para orientar o melhor formato
-              de antecipação ou cobrança para sua empresa.
-            </p>
-
-            <p class="rk-form-success" id="successMsg">
-              Dados preparados! Clique abaixo para concluir o contato via WhatsApp.
-            </p>
-            <a id="successLink" class="rk-btn rk-btn-outline rk-btn-full" target="_blank" style="display:none;">
-              Concluir contato pelo WhatsApp
-            </a>
-          </form>
         </div>
       </div>
     </section>
