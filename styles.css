@@ -63,7 +63,10 @@ main { min-height: 100vh; }
 
 .rk-light .rk-text,
 .rk-light .rk-microcopy,
-.rk-light .rk-list-bullets li { color:#3a3b4a; }
+.rk-light .rk-list-bullets li,
+.rk-light .rk-subheading {
+  color:#111321;
+}
 
 /* Tag */
 
@@ -169,17 +172,23 @@ main { min-height: 100vh; }
 
 .rk-list-bullets li { margin-bottom:8px; }
 
-.rk-light .rk-list-bullets li { color:#3a3b4a; }
-
 .rk-microcopy {
   font-size:0.78rem;
   color:#a4a7b7;
   margin-top:10px;
 }
 
-.rk-light .rk-microcopy { color:#7a7d8c; }
-
 .center { text-align:center; }
+
+/* Listas escuras específicas (Recebíveis / Atendimento) */
+
+.rk-light .rk-list-check li {
+  color:#111321;
+}
+
+.rk-list-dark li {
+  color:#111321;
+}
 
 /* Header */
 
@@ -510,6 +519,30 @@ main { min-height: 100vh; }
   margin-top:10px;
   position:relative;
   z-index:1;
+}
+
+/* Hero compacto com formulário */
+
+.rk-hero-compact {
+  padding-top: 90px;
+  padding-bottom: 60px;
+}
+
+.rk-form-hero {
+  margin-top: 0;
+}
+
+.rk-form-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #111321;
+}
+
+.rk-form-subtext {
+  font-size: 0.86rem;
+  color: #55586a;
+  margin-bottom: 12px;
 }
 
 /* Strip */
@@ -880,3 +913,14 @@ main { min-height: 100vh; }
 /* Utility */
 
 .rk-center-cta .rk-btn { margin-top:4px; }
+
+/* Responsivo hero + formulário */
+
+@media (max-width: 899px) {
+  .rk-hero-compact .rk-two-cols {
+    grid-template-columns: 1fr;
+  }
+  .rk-hero-right {
+    margin-top: 18px;
+  }
+}
